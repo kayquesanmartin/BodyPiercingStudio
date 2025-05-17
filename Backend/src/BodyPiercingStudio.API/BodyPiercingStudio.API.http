@@ -1,0 +1,6 @@
+@BodyPiercingStudio.API_HostAddress = http://localhost:5178
+
+GET {{BodyPiercingStudio.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
