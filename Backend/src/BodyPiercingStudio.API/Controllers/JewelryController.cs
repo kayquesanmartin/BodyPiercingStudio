@@ -13,17 +13,19 @@ public class JewelryController : ControllerBase
 
     public JewelryController(DataContext context)
     {
-            _context = context;
+        _context = context;
     }
 
     [HttpGet()]
-    public IEnumerable<Jewelry> Get() {
-        return _context.Jewelries;
+    public IEnumerable<Jewelry> Get()
+    {
+        return _context.Jewelry;
     }
 
     [HttpGet("{id}")]
-    public Jewelry? GetById(int id) {
-        return _context.Jewelries.FirstOrDefault(jewelry => jewelry.Id == id);
+    public Jewelry? GetById(int id)
+    {
+        return _context.Jewelry.FirstOrDefault(jewelry => jewelry.Id == id);
     }
 
     [HttpPost()]

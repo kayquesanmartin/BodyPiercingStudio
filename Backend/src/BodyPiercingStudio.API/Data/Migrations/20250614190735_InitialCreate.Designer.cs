@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BodyPiercingStudio.API.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250517231443_Initial")]
-    partial class Initial
+    [Migration("20250614190735_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,6 +36,10 @@ namespace BodyPiercingStudio.API.Data.Migrations
                     b.Property<decimal>("BasePrice")
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("BodyPart")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Category")
                         .IsRequired()
@@ -70,7 +74,7 @@ namespace BodyPiercingStudio.API.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Jewelries");
+                    b.ToTable("Jewelry");
                 });
 #pragma warning restore 612, 618
         }

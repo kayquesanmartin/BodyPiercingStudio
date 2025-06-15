@@ -34,6 +34,10 @@ namespace BodyPiercingStudio.API.Data.Migrations
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<string>("BodyPart")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Category")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -67,7 +71,7 @@ namespace BodyPiercingStudio.API.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Jewelries");
+                    b.ToTable("Jewelry");
                 });
 #pragma warning restore 612, 618
         }

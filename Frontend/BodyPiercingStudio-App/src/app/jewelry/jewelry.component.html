@@ -1,8 +1,55 @@
-<h1>Jóias do Components</h1>
+<h2>Jóias disponíveis</h2>
+<hr />
 
-<!--Diretiva ngFor-->
-<div *ngFor="let jewel of jewelry">
-  <p><b>Nome:</b> {{ jewel.name }}</p>
-  <p><b>Descrição:</b> {{ jewel.description }}</p>
-  <hr />
+<div class="d-flex mb-2 align-items-center">
+  <div class="d-flex align-items-center mb-2 w-100">
+    <label for="filterInput" class="me-2 mb-0">Filtro:</label>
+    <input
+      id="filterInput"
+      type="text"
+      class="form-control flex-grow-1"
+      placeholder="DIGITE O QUE VOCÊ PROCURA..."
+      [(ngModel)]="listFilter"
+    />
+  </div>
 </div>
+<table class="table table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>#</th>
+      <th>Imagem</th>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Local</th>
+      <th>Preço</th>
+      <th>Material</th>
+      <th>Categoria</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="jewelry && jewelry.length > 0">
+    <tr *ngFor="let jewel of filteredJewelry">
+      <td>{{ jewel.id }}</td>
+      <td>
+        <img
+          src="assets/{{ jewel.imageUrl }}"
+          alt="{{ jewel.name }}"
+          [style.width.px]="widthImg"
+          [style.margin.px]="marginImg"
+        />
+      </td>
+      <td>{{ jewel.name }}</td>
+      <td>{{ jewel.description }}</td>
+      <td>{{ jewel.bodyPart }}</td>
+      <td>R$ {{ jewel.basePrice }}</td>
+      <td>{{ jewel.material }}</td>
+      <td>{{ jewel.category }}</td>
+    </tr>
+  </tbody>
+  <tfoot *ngIf="!jewelry || jewelry.length === 0">
+    <tr>
+      <td colspan="8" class="text-center">
+        <h4>Nenhuma jóia encontrada!</h4>
+      </td>
+    </tr>
+  </tfoot>
+</table>
