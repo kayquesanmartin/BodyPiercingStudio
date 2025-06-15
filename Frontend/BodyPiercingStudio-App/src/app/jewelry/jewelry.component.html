@@ -16,19 +16,18 @@
 <table class="table table-striped">
   <thead class="table-dark">
     <tr>
-      <th>#</th>
       <th>Imagem</th>
       <th>Nome</th>
       <th>Descrição</th>
       <th>Local</th>
-      <th>Preço</th>
+      <th>Valor</th>
       <th>Material</th>
       <th>Categoria</th>
+      <th>Opção</th>
     </tr>
   </thead>
   <tbody *ngIf="jewelry && jewelry.length > 0">
     <tr *ngFor="let jewel of filteredJewelry">
-      <td>{{ jewel.id }}</td>
       <td>
         <img
           src="assets/{{ jewel.imageUrl }}"
@@ -40,9 +39,12 @@
       <td>{{ jewel.name }}</td>
       <td>{{ jewel.description }}</td>
       <td>{{ jewel.bodyPart }}</td>
-      <td>R$ {{ jewel.basePrice }}</td>
+      <td class="price-cell">R$ {{ jewel.basePrice }}</td>
       <td>{{ jewel.material }}</td>
       <td>{{ jewel.category }}</td>
+      <td>
+        <button type="button" class="btn btn-primary btn-sm">Agendar</button>
+      </td>
     </tr>
   </tbody>
   <tfoot *ngIf="!jewelry || jewelry.length === 0">
