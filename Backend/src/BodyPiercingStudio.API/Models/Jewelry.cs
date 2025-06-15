@@ -11,6 +11,7 @@ namespace BodyPiercingStudio.API.Models
         public int Id { get; set; }
         public required string Name { get; set; }
         public string? Description { get; set; }
+        public required string BodyPart { get; set; } // Ex: Orelha, Nariz, Sobrancelha, etc.
         [Precision(18, 2)]
         public decimal BasePrice { get; set; }
         public required string Material { get; set; } // Ouro, Prata, Aço Cirúrgico, etc.
